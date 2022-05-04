@@ -1,4 +1,4 @@
 <app-card title="List movie winners by year">
   <app-filter (onConfirm)="handleSearch($event)"></app-filter>
-  <app-dynamic-table [columns]="columns" [data]="data" emptyMessage="Filter to load"></app-dynamic-table>
+  <app-dynamic-table [model]="model" [data]="data" emptyMessage="Filter to load"></app-dynamic-table>
 </app-card>

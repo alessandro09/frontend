@@ -3,7 +3,7 @@ export interface MovieFilters {
 
   size: number
 
-  winner: boolean
+  winner?: boolean
 
-  year: number
+  year?: number
 }

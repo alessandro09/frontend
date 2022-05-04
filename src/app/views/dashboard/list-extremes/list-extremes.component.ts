@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { DynamicTableModel } from 'src/components/dynamic-table/dynamic-table.model'
 
-import { IntervalAwards } from '../../../models/IntervalAwards'
+import { Award, IntervalAwards } from '../../../models/IntervalAwards'
 import { ApiService } from '../../../services/api.service'
 
 @Component({
@@ -14,12 +14,14 @@ export class ListExtremesComponent implements OnInit {
 
   private subscriptionApi?: Subscription
 
-  columns: DynamicTableModel[] = [
-    { property: 'producer', title: 'Producer' },
-    { property: 'interval', title: 'Interval' },
-    { property: 'previousWin', title: 'Previous Year' },
-    { property: 'followingWin', title: 'Following Year' }
-  ]
+  model: DynamicTableModel<Award> = {
+    columns: [
+      { property: 'producer', title: 'Producer' },
+      { property: 'interval', title: 'Interval' },
+      { property: 'previousWin', title: 'Previous Year' },
+      { property: 'followingWin', title: 'Following Year' }
+    ]
+  }
 
   data?: IntervalAwards;
 

@@ -4,9 +4,11 @@ import { FormsModule } from '@angular/forms'
 
 import { ButtonComponent } from './button/button.component'
 import { CardComponent } from './card/card.component'
+import { ComboboxComponent } from './combobox/combobox.component'
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component'
 import { FilterComponent } from './filter/filter.component'
 import { InputComponent } from './input/input.component'
+import { PaginatorComponent } from './paginator/paginator.component'
 import { TableModule } from './table/table.module'
 
 @NgModule({
@@ -20,7 +22,9 @@ import { TableModule } from './table/table.module'
     FilterComponent,
     InputComponent,
     ButtonComponent,
-    DynamicTableComponent
+    DynamicTableComponent,
+    PaginatorComponent,
+    ComboboxComponent
   ],
   exports: [
     CardComponent,
@@ -28,7 +32,9 @@ import { TableModule } from './table/table.module'
     FilterComponent,
     InputComponent,
     ButtonComponent,
-    DynamicTableComponent
+    DynamicTableComponent,
+    PaginatorComponent,
+    ComboboxComponent
   ]
 })
 export class ComponentsModule { }

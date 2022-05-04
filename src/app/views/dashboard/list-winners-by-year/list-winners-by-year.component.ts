@@ -16,10 +16,12 @@ export class ListWinnersByYearComponent implements OnInit {
 
   data?: WinnerByYear[]
 
-  columns: DynamicTableModel[] = [
-    { property: 'year', title: 'Year' },
-    { property: 'winnerCount', title: 'Win Count' }
-  ]
+  model: DynamicTableModel<WinnerByYear> = {
+    columns: [
+      { property: 'year', title: 'Year' },
+      { property: 'winnerCount', title: 'Win Count' }
+    ]
+  }
 
   constructor(
     private apiService: ApiService

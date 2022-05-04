@@ -27,7 +27,7 @@ export class ApiService {
 
   getWinningStudios = () => this.get<StudiosWrapper>({ projection: 'studios-with-win-count' })
 
-  getWinnerByYear = (year: string) => this.get<Movie>({ winner: true, year })
+  getWinnerByYear = (year: string) => this.get<Movie[]>({ winner: true, year })
 
   getYearsWithMultipleWinners = () => this.get<WinnerByYearWrapper>({ projection: 'years-with-multiple-winners' })
 }
