@@ -16,10 +16,12 @@ export class ListTopThreeStudiosComponent implements OnInit {
 
   data?: Studio[]
 
-  columns: DynamicTableModel[] = [
-    { property: 'name', title: 'Name' },
-    { property: 'winCount', title: 'Win Count' }
-  ]
+  model: DynamicTableModel<Studio> = {
+    columns: [
+      { property: 'name', title: 'Name' },
+      { property: 'winCount', title: 'Win Count' }
+    ]
+  }
 
   constructor(
     private apiService: ApiService

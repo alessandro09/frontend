@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { DynamicTableModel } from 'src/components/dynamic-table/dynamic-table.model'
 
+import { Movie } from '../../../models/Movie'
 import { ApiService } from '../../../services/api.service'
 
 @Component({
@@ -13,13 +14,15 @@ export class ListMovieWinnersByYearComponent implements OnInit {
 
   private subscriptionApi?: Subscription
 
-  data: any
+  data?: Movie[]
 
-  columns: DynamicTableModel[] = [
-    { property: 'id', title: 'Id' },
-    { property: 'year', title: 'Year' },
-    { property: 'title', title: 'Title' }
-  ]
+  model: DynamicTableModel<Movie> = {
+    columns: [
+      { property: 'id', title: 'Id' },
+      { property: 'year', title: 'Year' },
+      { property: 'title', title: 'Title' }
+    ]
+  }
 
   constructor(
     private apiService: ApiService

@@ -1,5 +1,5 @@
 export interface PaginatedResult<T> {
-  content: T
+  content: T[]
 
   pageable: {
     sort: {

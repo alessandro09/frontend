@@ -1,13 +1,22 @@
 <app-table>
   <app-thead>
-    <app-th *ngFor="let column of columns">{{column.title}}</app-th>
+    <app-th *ngFor="let col of model.columns" [style.text-align]="col.headerAlign">
+      {{col.title}}
+      <div *ngIf="showFilter(col)" style="margin-top: 10px;">
+        <app-input *ngIf="!isFilterCombobox(col)" [type]="filterType(col)"></app-input>
+        <app-combobox *ngIf="isFilterCombobox(col)" [options]="filterOptions(col)"></app-combobox>
+      </div>
+    </app-th>
   </app-thead>
-  <span class="empty" *ngIf="emptyMessage && !data?.length">{{emptyMessage}}</span>
+  <span class="empty" *ngIf="emptyMessage && !items?.length">{{emptyMessage}}</span>
   <app-tbody>
-    <app-tr *ngFor="let it of data">
-      <app-td *ngFor="let column of columns">
-        {{it[column.property]}}
+    <app-tr *ngFor="let it of items">
+      <app-td *ngFor="let col of model.columns">
+        {{castValue(it, col)}}
       </app-td>
     </app-tr>
   </app-tbody>
+  <app-tfoot>
+    <app-paginator></app-paginator>
+  </app-tfoot>
 </app-table>
