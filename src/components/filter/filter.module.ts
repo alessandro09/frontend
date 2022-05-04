@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 
 import { ButtonModule } from '../button/button.module'
+import { ComboboxModule } from '../combobox/combobox.module'
 import { InputModule } from '../input/input.module'
 import { FilterComponent } from './filter.component'
 
@@ -11,7 +12,8 @@ import { FilterComponent } from './filter.component'
     CommonModule,
     FormsModule,
     InputModule,
-    ButtonModule
+    ButtonModule,
+    ComboboxModule
   ],
   declarations: [
     FilterComponent

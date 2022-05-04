@@ -1,3 +1,19 @@
-<p>
-  paginator works!
-</p>
+<app-button (click)="handleFirst()" [attr.disabled]="currentPage === 1">
+  <i class="fa-solid fa-backward-step"></i>
+</app-button>
+<app-button (click)="handlePrevious()" [attr.disabled]="currentPage === 1">
+  <i class="fa-solid fa-caret-left"></i>
+</app-button>
+<app-button
+  *ngFor="let it of buttons"
+  (click)="it.action()"
+  [class.active]="it.page === currentPage"
+>
+  {{it.page}}
+</app-button>
+<app-button (click)="handleNext()" [attr.disabled]="currentPage === totalPages">
+  <i class="fa-solid fa-caret-right"></i>
+</app-button>
+<app-button (click)="handleLast()" [attr.disabled]="currentPage === totalPages">
+  <i class="fa-solid fa-forward-step"></i>
+</app-button>

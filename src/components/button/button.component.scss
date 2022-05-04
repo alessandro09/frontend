@@ -1,3 +1,5 @@
+@import '../../assets/variables';
+
 :host {
   border-radius: 5px;
   border: solid 1px #007bff;
@@ -7,6 +9,14 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  @include nonselect;
+
+  &[disabled="true"] {
+    border: none;
+    filter: grayscale(1);
+    cursor: default;
+  }
 
   &.outlined {
     background: none;

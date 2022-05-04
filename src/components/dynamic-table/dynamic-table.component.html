@@ -2,7 +2,14 @@
   <app-thead>
     <app-th *ngFor="let col of model.columns" [style.text-align]="col.headerAlign">
       {{col.title}}
-      <app-column-filter *ngIf="showFilter(col)" [column]="col"></app-column-filter>
+      <app-filter
+        mode="debounce"
+        *ngIf="getFilter(col)"
+        [type]="getFilter(col)"
+        [options]="getFilterOptions(col)"
+        [(ngModel)]="filter[getColFilterProperty(col)]"
+        (ngModelChange)="reloadFilter()"
+      ></app-filter>
     </app-th>
   </app-thead>
   <span class="empty" *ngIf="emptyMessage && !items?.length">{{emptyMessage}}</span>
@@ -14,6 +21,10 @@
     </app-tr>
   </app-tbody>
   <app-tfoot *ngIf="model.paginated">
-    <app-paginator></app-paginator>
+    <app-tr>
+      <td [colSpan]="model.columns.length">
+        <app-paginator [totalPages]="totalPages" [ngModel]="currentPage" (ngModelChange)="onChangeFilter($event)"></app-paginator>
+      </td>
+    </app-tr>
   </app-tfoot>
 </app-table>

@@ -1,0 +1,31 @@
+@import '../../assets/variables';
+
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    app-button {
+        border-radius: 0;
+        height: 29px;
+        box-sizing: border-box;
+        
+        &:hover {
+            border: 1px solid $COLOR_DARK_BLUE !important;
+            padding: 3px 9px;
+
+            &[disabled="true"] {
+                border: none !important;
+                padding: 3px 10px;
+            }
+        }
+
+        &:not(.active) {
+            background: none;
+            border: none;
+            color: $COLOR_DARK_GRAY;
+        }
+
+        &.active { padding: 3px 8px; }
+    }
+}

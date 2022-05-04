@@ -4,3 +4,9 @@ body {
   color: #333333;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
+
+app-td, td {
+  display: table-cell;
+  border: 1px solid #c9c9c9;
+  padding: 6px 12px;
+}

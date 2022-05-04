@@ -11,12 +11,12 @@ const menus = [
 ]
 
 const routes: Routes = [
-  { path: '', redirectTo: '/app', pathMatch: 'full' },
+  { path: '', redirectTo: '/app/dashboard', pathMatch: 'full' },
   { path: 'app', component: TemplateComponent, data: { menus }, children: [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'list', component: ListComponent }
   ] },
-  { path: '**', redirectTo: '/app' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

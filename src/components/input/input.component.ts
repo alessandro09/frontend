@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, ElementRef, Input, ViewChild } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component({
@@ -13,13 +13,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
     }
   ]
 })
-export class InputComponent implements ControlValueAccessor, OnInit {
+export class InputComponent implements ControlValueAccessor {
 
   @Input() type?: 'input' | 'number'
 
+  @ViewChild('input') ref?: ElementRef;
+
   value: string = ""
 
-  onChange = (value: string) => {};
+  onChange = (_: string) => {};
 
   onTouched = () => {};
 
@@ -29,7 +31,8 @@ export class InputComponent implements ControlValueAccessor, OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  get nativeElement() {
+    return this.ref?.nativeElement
   }
 
   writeValue(value: any): void {
@@ -57,9 +60,5 @@ export class InputComponent implements ControlValueAccessor, OnInit {
 
   updateChanges() {
     this.onChange(this.value)
-  }
-
-  focus() {
-
   }
 }

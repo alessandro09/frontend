@@ -52,6 +52,8 @@ export class ListComponent implements OnInit {
   }
 
   handleSearch(filters?: any) {
+    if (filters?.winner === 'undefined') delete filters?.winner
+
     this.subscriptionApi = this.apiService
       .getPaginatedMovies({ page: 0, size: 15, ...filters })
       .subscribe(it => {
