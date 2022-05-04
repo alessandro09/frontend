@@ -1,27 +1,33 @@
-# Frontend
+# Introdução
+Foram implementadas duas views, sendo a `dashbord` e `list` conforme solicitado no exercicio.<br>
+Por questão de tempo, optei por escrever testes unitários apenas das views/funcionalidades, já que devido a opção de componentização atomica, foi gerado um grande volume de artefatos.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
+# Passos para execução do projeto
 
-## Development server
+Após clonar o projeto para o disco local, executar os passos à baixo:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+`npm i` Fazer instalação das dependencias necessárias
 
-## Code scaffolding
+`npm start` - Iniciar servidor
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Após aguardar o startup do servidor, a aplicação estará acessivel no endereço `http://localhost:4200`
 
-## Build
+# Components disponíveis
+Este projeto foi desenvolvido utilizando o conceito "Atomic Design", portanto todos os components são reutilizaveis e possuem seus modulos individuais. Por comodidade e prevendo que todos os componentes precisação ser utilizados nas telas, existe o módulo `ComponentsModule` que agrupa todos. Segue a baixo listagem dos componentes disponíveis:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Button
+Componente para gerar botão na view
+## Card
+Componente que permite Título para orgenização e agrupamento das áreas da tela
+## Comobbox
+Componente para seleção de opções pré definidas
+## DynamicTable
+Tabela gerada dinamicamente através da configuração de um modelo de dados.
+## Filter
+Componente para filtrar dados nas listagens. O modo principal consistema em digitar os dados e clicar em confirmar. Opcionalmente poderá ser optada pela opção debounced
+## Input
+Componente para entrada de dados
+## Paginator
+Componente para paginação de tabelas
+## Table
+Componente de tabela já estilizada

@@ -32,8 +32,6 @@ export class ComboboxComponent {
   constructor() { }
 
   get nativeElement() {
-    console.log(this.ref);
-    
     return this.ref?.nativeElement
   }
 
