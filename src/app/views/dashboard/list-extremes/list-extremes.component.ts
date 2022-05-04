@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { DynamicTableModel } from 'src/components/dynamic-table/dynamic-table.model'
 
@@ -10,7 +10,7 @@ import { ApiService } from '../../../services/api.service'
   templateUrl: './list-extremes.component.html',
   styleUrls: ['./list-extremes.component.scss']
 })
-export class ListExtremesComponent implements OnInit {
+export class ListExtremesComponent implements OnInit, OnDestroy {
 
   private subscriptionApi?: Subscription
 

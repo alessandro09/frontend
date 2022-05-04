@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { WinnerByYear } from 'src/app/models/WinnerByYear'
 
@@ -10,7 +10,7 @@ import { ApiService } from '../../../services/api.service'
   templateUrl: './list-winners-by-year.component.html',
   styleUrls: ['./list-winners-by-year.component.scss']
 })
-export class ListWinnersByYearComponent implements OnInit {
+export class ListWinnersByYearComponent implements OnInit, OnDestroy {
 
   private subscriptionApi?: Subscription
 

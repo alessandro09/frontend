@@ -1,8 +1,10 @@
+@import './assets/variables';
+
 /* You can add global styles to this file, and also import other style files */
 
 body {
   color: #333333;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family: $FONT_FAMILY;
 }
 
 app-td, td {

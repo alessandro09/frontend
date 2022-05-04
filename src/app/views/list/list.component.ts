@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { DynamicTableModel } from 'src/components/dynamic-table/dynamic-table.model'
 
@@ -11,7 +11,7 @@ import { ApiService } from '../../services/api.service'
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
 
   private subscriptionApi?: Subscription
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { DynamicTableModel } from 'src/components/dynamic-table/dynamic-table.model'
 
@@ -10,7 +10,7 @@ import { ApiService } from '../../../services/api.service'
   templateUrl: './list-movie-winners-by-year.component.html',
   styleUrls: ['./list-movie-winners-by-year.component.scss']
 })
-export class ListMovieWinnersByYearComponent implements OnInit {
+export class ListMovieWinnersByYearComponent implements OnDestroy {
 
   private subscriptionApi?: Subscription
 
@@ -27,10 +27,6 @@ export class ListMovieWinnersByYearComponent implements OnInit {
   constructor(
     private apiService: ApiService
   ) { }
-
-  ngOnInit() {
-
-  }
 
   ngOnDestroy() {
     this.subscriptionApi?.unsubscribe()

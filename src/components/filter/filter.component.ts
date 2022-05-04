@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core'
+import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core'
 import { NG_VALUE_ACCESSOR } from '@angular/forms'
-import { fromEvent } from 'rxjs'
+import { fromEvent, Subscription } from 'rxjs'
 import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators'
 
 import { InputComponent } from '../input/input.component'
@@ -17,7 +17,7 @@ import { InputComponent } from '../input/input.component'
     }
   ]
 })
-export class FilterComponent implements AfterViewInit {
+export class FilterComponent implements AfterViewInit, OnDestroy {
 
   @Input() type: 'input' | 'number' | 'combobox' = 'input'
 
@@ -41,7 +41,12 @@ export class FilterComponent implements AfterViewInit {
 
   disabled = false;
 
+  subscription?: Subscription
+
   constructor() { }
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
+  }
   
   ngAfterViewInit(): void {
     if (this.mode === 'debounce') this.initDebounce()
@@ -79,12 +84,9 @@ export class FilterComponent implements AfterViewInit {
   }
 
   private initDebounce() {
-    console.log(this.inputRef?.nativeElement);
-    
-
     if (!this.inputRef?.nativeElement) return
     
-    fromEvent(this.inputRef?.nativeElement, this.type === 'combobox' ? 'change' : 'keyup')
+    this.subscription = fromEvent(this.inputRef?.nativeElement, this.type === 'combobox' ? 'change' : 'keyup')
             .pipe(
                 filter(Boolean),
                 debounceTime(this.debounceTime),

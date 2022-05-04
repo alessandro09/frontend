@@ -1,9 +1,13 @@
+@import '../../assets/variables';
+
 :host {
   display: block;
   overflow: auto;
   width: 100%;
 
   app-tfoot {
+    background-color: $COLOR_BACKGROUND_GRAY;
+
     td {
       padding: 0;
       align-items: center;
