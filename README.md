@@ -1,6 +1,8 @@
 # Introdução
 Foram implementadas duas views, sendo a `dashbord` e `list` conforme solicitado no exercicio.<br>
-Por questão de tempo, optei por escrever testes unitários apenas das views/funcionalidades, já que devido a opção de componentização atomica, foi gerado um grande volume de artefatos.
+As views utilizam componentes todos criados especificamente para este projeto.
+Por questão de tempo, optei por escrever testes mais completos apenas das views/funcionalidades, os demais componentes contem apenas testes básicos de criação. Isso ocorre devido a opção de utilizada de componentização atomica que gerou um grande volume de artefatos.
+
 
 # Passos para execução do projeto
 

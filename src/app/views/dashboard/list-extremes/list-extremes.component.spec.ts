@@ -1,9 +1,8 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { ListExtremesComponent } from './list-extremes.component';
+import { ListExtremesComponent } from './list-extremes.component'
 
 describe('ListExtremesComponent', () => {
   let component: ListExtremesComponent;
@@ -11,7 +10,8 @@ describe('ListExtremesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListExtremesComponent ]
+      declarations: [ ListExtremesComponent ],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
   }));

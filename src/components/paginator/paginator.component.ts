@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, SimpleChanges } from '@angular/core'
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core'
 import { NG_VALUE_ACCESSOR } from '@angular/forms'
 import { times } from 'lodash'
 
@@ -14,7 +14,7 @@ import { times } from 'lodash'
     }
   ]
 })
-export class PaginatorComponent implements AfterViewInit, OnChanges {
+export class PaginatorComponent implements OnChanges {
 
   @Input() totalPages = 1
 
@@ -35,10 +35,6 @@ export class PaginatorComponent implements AfterViewInit, OnChanges {
   constructor() { }
   
   ngOnChanges(changes: SimpleChanges): void {
-    this.generateButtons()
-  }
-
-  ngAfterViewInit() : void {
     this.generateButtons()
   }
 

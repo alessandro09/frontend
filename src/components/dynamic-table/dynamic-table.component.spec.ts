@@ -1,13 +1,11 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { DynamicTableComponent } from './dynamic-table.component';
+import { DynamicTableComponent } from './dynamic-table.component'
 
 describe('DynamicTableComponent', () => {
-  let component: DynamicTableComponent;
-  let fixture: ComponentFixture<DynamicTableComponent>;
+  let component: DynamicTableComponent<any>;
+  let fixture: ComponentFixture<DynamicTableComponent<any>>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

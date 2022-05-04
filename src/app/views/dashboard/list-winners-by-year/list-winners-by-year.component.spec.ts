@@ -1,9 +1,8 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { ListWinnersByYearComponent } from './list-winners-by-year.component';
+import { ListWinnersByYearComponent } from './list-winners-by-year.component'
 
 describe('ListWinnersByYearComponent', () => {
   let component: ListWinnersByYearComponent;
@@ -11,7 +10,8 @@ describe('ListWinnersByYearComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListWinnersByYearComponent ]
+      declarations: [ ListWinnersByYearComponent ],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
   }));

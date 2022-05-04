@@ -1,4 +1,5 @@
 /* tslint:disable:no-unused-variable */
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { ListMovieWinnersByYearComponent } from './list-movie-winners-by-year.component'
@@ -9,7 +10,8 @@ describe('ListMovieWinnersByYearComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListMovieWinnersByYearComponent ]
+      declarations: [ ListMovieWinnersByYearComponent ],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
   }));
