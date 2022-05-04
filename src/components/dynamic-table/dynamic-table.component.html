@@ -2,7 +2,7 @@
   <app-thead>
     <app-th *ngFor="let col of model.columns" [style.text-align]="col.headerAlign">
       {{col.title}}
-      <app-column-filter></app-column-filter>
+      <app-column-filter *ngIf="showFilter(col)" [column]="col"></app-column-filter>
     </app-th>
   </app-thead>
   <span class="empty" *ngIf="emptyMessage && !items?.length">{{emptyMessage}}</span>
@@ -13,7 +13,7 @@
       </app-td>
     </app-tr>
   </app-tbody>
-  <app-tfoot>
+  <app-tfoot *ngIf="model.paginated">
     <app-paginator></app-paginator>
   </app-tfoot>
 </app-table>
