@@ -1,0 +1,4 @@
+<app-input [(ngModel)]="filter" (keyup.enter)="handleConfirm()"></app-input>
+<app-button (click)="handleConfirm()" (keyup.space)="handleConfirm()">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</app-button>

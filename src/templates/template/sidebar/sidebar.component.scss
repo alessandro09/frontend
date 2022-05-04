@@ -1,0 +1,32 @@
+@import "../variables";
+
+:host {
+  grid-area: sidebar;
+  background-color: rgb(248, 248, 248);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  a {
+    text-decoration: none;
+    color: $COLOR_DARK_GRAY;
+
+    &.active {
+      color: $COLOR_DARK_BLUE;
+    }
+  }
+
+  @media (max-width: $MAX_WIDTH_TO_SHOW_SIDEBAR) {
+    display: none;
+
+    &.open {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: $SIDEBAR_WIDTH;
+    }
+  }
+}

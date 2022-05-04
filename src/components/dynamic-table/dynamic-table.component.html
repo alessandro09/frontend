@@ -1,0 +1,13 @@
+<app-table>
+  <app-thead>
+    <app-th *ngFor="let column of columns">{{column.title}}</app-th>
+  </app-thead>
+  <span class="empty" *ngIf="emptyMessage && !data?.length">{{emptyMessage}}</span>
+  <app-tbody>
+    <app-tr *ngFor="let it of data">
+      <app-td *ngFor="let column of columns">
+        {{it[column.property]}}
+      </app-td>
+    </app-tr>
+  </app-tbody>
+</app-table>

@@ -1,0 +1,19 @@
+@import "../variables";
+
+:host {
+  background-color: #343940;
+  color: white;
+  grid-area: toolbar;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 22px;
+
+  #btn-open-menu { display: none; }
+
+  span { flex: 1 }
+
+  @media (max-width: $MAX_WIDTH_TO_SHOW_SIDEBAR) {
+    #btn-open-menu { display: inline-block; }
+  }
+}

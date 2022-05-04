@@ -1,0 +1,26 @@
+@import "./variables";
+
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: grid;
+  grid-template-columns: $SIDEBAR_WIDTH 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas:
+    "toolbar toolbar"
+    "sidebar content";
+}
+
+@media (max-width: $MAX_WIDTH_TO_SHOW_SIDEBAR) {
+  :host {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas:
+    "toolbar"
+    "content";
+  }
+}

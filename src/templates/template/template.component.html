@@ -1,0 +1,7 @@
+<app-toolbar (onToggleSidebar)="handleExpandSidebar()">
+  Frontend Angular Test
+</app-toolbar>
+<app-sidebar [class.open]="open">Sidebar</app-sidebar>
+<app-content>
+  <router-outlet></router-outlet>
+</app-content>
