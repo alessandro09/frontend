@@ -2,10 +2,7 @@
   <app-thead>
     <app-th *ngFor="let col of model.columns" [style.text-align]="col.headerAlign">
       {{col.title}}
-      <div *ngIf="showFilter(col)" style="margin-top: 10px;">
-        <app-input *ngIf="!isFilterCombobox(col)" [type]="filterType(col)"></app-input>
-        <app-combobox *ngIf="isFilterCombobox(col)" [options]="filterOptions(col)"></app-combobox>
-      </div>
+      <app-column-filter></app-column-filter>
     </app-th>
   </app-thead>
   <span class="empty" *ngIf="emptyMessage && !items?.length">{{emptyMessage}}</span>

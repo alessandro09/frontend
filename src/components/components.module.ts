@@ -1,40 +1,36 @@
-import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 
-import { ButtonComponent } from './button/button.component'
-import { CardComponent } from './card/card.component'
-import { ComboboxComponent } from './combobox/combobox.component'
-import { DynamicTableComponent } from './dynamic-table/dynamic-table.component'
-import { FilterComponent } from './filter/filter.component'
-import { InputComponent } from './input/input.component'
-import { PaginatorComponent } from './paginator/paginator.component'
+import { ButtonModule } from './button/button.module'
+import { CardModule } from './card/card.module'
+import { ComboboxModule } from './combobox/combobox.module'
+import { DynamicTableModule } from './dynamic-table/dynamic-table.module'
+import { FilterModule } from './filter/filter.module'
+import { InputModule } from './input/input.module'
+import { PaginatorModule } from './paginator/paginator.module'
 import { TableModule } from './table/table.module'
 
 @NgModule({
   imports: [
-    CommonModule,
     TableModule,
-    FormsModule
-  ],
-  declarations: [
-    CardComponent,
-    FilterComponent,
-    InputComponent,
-    ButtonComponent,
-    DynamicTableComponent,
-    PaginatorComponent,
-    ComboboxComponent
+    FormsModule,
+    DynamicTableModule,
+    CardModule,
+    FilterModule,
+    InputModule,
+    ButtonModule,
+    PaginatorModule,
+    ComboboxModule
   ],
   exports: [
-    CardComponent,
     TableModule,
-    FilterComponent,
-    InputComponent,
-    ButtonComponent,
-    DynamicTableComponent,
-    PaginatorComponent,
-    ComboboxComponent
+    DynamicTableModule,
+    CardModule,
+    FilterModule,
+    InputModule,
+    ButtonModule,
+    PaginatorModule,
+    ComboboxModule
   ]
 })
 export class ComponentsModule { }
