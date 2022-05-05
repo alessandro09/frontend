@@ -8,14 +8,14 @@ const menus = [
   { description: 'List', path: '/app/list' }
 ]
 
-const dashboardComponent = () => import('./views/dashboard/dashboard.component').then(m => m.DashboardComponent)
-const listComponent = () => import('./views/list/list.component').then(m => m.ListComponent)
+const dashboardModule = () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
+const listModule = () => import('./views/list/list.module').then(m => m.ListModule)
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/dashboard', pathMatch: 'full' },
   { path: 'app', component: TemplateComponent, data: { menus }, children: [
-    { path: 'dashboard', loadChildren: dashboardComponent },
-    { path: 'list', loadChildren: listComponent }
+    { path: 'dashboard', loadChildren: dashboardModule },
+    { path: 'list', loadChildren: listModule }
   ] },
   { path: '**', redirectTo: '' }
 ];
