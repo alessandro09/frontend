@@ -2,29 +2,28 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { Observable } from 'rxjs'
-import { Studio } from 'src/app/models/Studios'
+import { PaginatedResult } from 'src/app/models/PaginatedResult'
 import { ApiService } from 'src/app/services/api.service'
 
-import { DynamicTableModel } from '../../../../components/dynamic-table/dynamic-table.model'
-import { ListTopThreeStudiosComponent } from './list-top-three-studios.component'
+import { ListComponent } from './list.component'
 
-describe('ListTopThreeStudiosComponent', () => {
-  let component: ListTopThreeStudiosComponent;
-  let fixture: ComponentFixture<ListTopThreeStudiosComponent>;
+describe('ListComponent', () => {
+  let component: ListComponent;
+  let fixture: ComponentFixture<ListComponent>;
 
-  const mockedData = { studios: ['a', 'b', 'c', 'd'] }
+  const mockedData: PaginatedResult<any> = { content: [] } as any
 
-  const getWinningStudios = new Observable(sub => {
+  const getPaginatedMovies = new Observable(sub => {
     sub.next(mockedData)
   })
 
-  const mockApi = jasmine.createSpyObj('ApiService', ['getWinningStudios'])
+  const mockApi = jasmine.createSpyObj('ApiService', ['getPaginatedMovies'])
 
-  mockApi.getWinningStudios.and.returnValue(getWinningStudios)
+  mockApi.getPaginatedMovies.and.returnValue(getPaginatedMovies)
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListTopThreeStudiosComponent ],
+      declarations: [ ListComponent ],
       imports: [ HttpClientTestingModule ],
       providers: [ { provide: ApiService, useValue: mockApi } ]
     })
@@ -32,7 +31,7 @@ describe('ListTopThreeStudiosComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListTopThreeStudiosComponent);
+    fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -49,7 +48,7 @@ describe('ListTopThreeStudiosComponent', () => {
     const [ appCard ] = Array.from(el.childNodes)
 
     expect(appCard.nodeName).toBe('APP-CARD')
-    expect((appCard as any).getAttribute('title')).toBe('Top 3 studios with winners')
+    expect((appCard as any).getAttribute('title')).toBe('List movies')
   });
 
   it('should render children to app-card', () => {
@@ -64,19 +63,22 @@ describe('ListTopThreeStudiosComponent', () => {
   });
 
   it('should instantiate model', () => {
-    const expectModel: DynamicTableModel<Studio> = {
-      columns: [
-        { property: 'name', title: 'Name' },
-        { property: 'winCount', title: 'Win Count' }
-      ]
-    }
-
-    expect(fixture.componentInstance.model).toEqual(expectModel)
+    expect(fixture.componentInstance.model).toBeTruthy()
   })
 
   it('should load data calling api', () => {
     fixture.componentInstance.ngOnInit()
     
-    expect(fixture.componentInstance.data).toEqual(['a', 'b', 'c'] as any)
+    expect(fixture.componentInstance.data).toBe(mockedData)
+
+    expect(mockApi.getPaginatedMovies).toHaveBeenCalledWith({ page: 0, size: 15 })
+  })
+
+  it('should load data calling api with params', () => {
+    fixture.componentInstance.handleSearch({ year: 2015, winner: true })
+    
+    expect(fixture.componentInstance.data).toBe(mockedData)
+
+    expect(mockApi.getPaginatedMovies).toHaveBeenCalledWith({ page: 0, size: 15, year: 2015, winner: true })
   })
 });
